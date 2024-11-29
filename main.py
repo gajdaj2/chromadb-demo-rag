@@ -2,6 +2,7 @@ import numpy as np
 from sentence_transformers import CrossEncoder
 
 from service import chroma_collection, ask_ollama_lg, Query
+from service.llm import ask_gpt
 
 
 def scoring(query):
@@ -25,4 +26,4 @@ query = "Who is CEO in Microsoft ?"
 
 the_best_answer_from_documents = scoring(query)
 
-print(ask_ollama_lg(Query(query, the_best_answer_from_documents)))
+print(ask_gpt(query, the_best_answer_from_documents))
